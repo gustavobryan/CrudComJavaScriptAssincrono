@@ -1,4 +1,4 @@
-const criarNovaLinha = () => {
+const criarNovaLinha = (nome, email) => {
     const linhaNovoCliente = document.createElement('tr');
     const conteudo = `
     <td class="td" data-td>${nome}</td>
@@ -19,7 +19,7 @@ const tabela = document.querySelector('[data-tabela]')
 
 const listaClientes = () => {
     const promise = new Promise((resolve, reject) => {
-        const http = new XMLHttpRequest();
+        const http = new XMLHttpRequest()
         http.open('GET', 'http://localhost:3000/profile')
 
         http.onload = () => {
@@ -31,13 +31,12 @@ const listaClientes = () => {
         }
         http.send()
     });
-    console.log(promise);
     return promise
 }
 
 
 listaClientes()
-.then(data => {
+.then( data => {
     data.forEach(elemento => {
         tabela.appendChild(criarNovaLinha(elemento.nome, elemento.email))
     })
