@@ -11,7 +11,7 @@ const criaCliente = (nome, email) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.Stringfy({
+        body: JSON.stringify({
             nome: nome,
             email: email
         })
@@ -21,14 +21,14 @@ const criaCliente = (nome, email) => {
         })
 }
 
-const removeCliente = () => {
-    fetch(`http://localhost:3000/profile/${id}`, {
+const removeCliente = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
         method: 'DELETE'
     })
 }
 
 export const clienteService = {
     listaClientes,
-    criaCliente, 
+    criaCliente,
     removeCliente
 }
