@@ -48,6 +48,7 @@ const render = async () => {
         console.log(erro)
         window.location.href = '../telas/erro.html'
     }
+    
 }
 
 render()
